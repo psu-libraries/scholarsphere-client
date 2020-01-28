@@ -11,4 +11,4 @@
 .rspec_status
 
 # Ignore application configuration
-/config/config.yml
+/config/scholarsphere-client.yml
