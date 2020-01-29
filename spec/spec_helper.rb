@@ -6,6 +6,7 @@ SimpleCov.start do
 end
 
 require 'bundler/setup'
+require 'pry'
 require 'scholarsphere/client'
 require 'rspec/its'
 

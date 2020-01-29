@@ -3,3 +3,7 @@ inherit_gem:
       - niftany_rubocop_rspec.yml
       - niftany_rubocop_ruby.yml
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'scholarsphere-client.gemspec'

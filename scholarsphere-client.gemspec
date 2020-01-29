@@ -30,10 +30,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'aws-sdk-s3', '~> 1.49'
+  spec.add_dependency 'faraday', '~> 1.0'
   spec.add_dependency 'marcel', '~> 0.3'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'niftany', '~> 0.6'
+  spec.add_development_dependency 'pry', '~> 0.12'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its', '~> 1.3'
