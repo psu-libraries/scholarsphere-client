@@ -32,6 +32,19 @@ RSpec.describe Scholarsphere::S3::Uploader do
       end
     end
 
+    context 'when using multipart upload' do
+      let(:path) { fixture_path('multipart.dat') }
+      let(:file) { Scholarsphere::S3::UploadedFile.new(path) }
+      let(:uploader) { described_class.new(multipart_threshold: file.size - 1024) }
+
+      it 'adds the file to S3 using multipart upload' do
+        expect(uploader.multipart_threshold).to eq(file.size - 1024)
+        uploader.upload(file)
+        response = uploader.client.get_object(bucket: ENV['AWS_BUCKET'], key: file.key)
+        expect(Digest::MD5.hexdigest(response.body.read)).to eq(checksum)
+      end
+    end
+
     context 'when the file exceeds the multipart upload threshold' do
       let(:file) do
         instance_spy(Scholarsphere::S3::UploadedFile,

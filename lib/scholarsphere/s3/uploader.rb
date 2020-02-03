@@ -10,7 +10,8 @@ module Scholarsphere
       # @option options [Integer] :multipart_threshold (15728640)
       def initialize(options = {})
         @options = options
-        @client = options[:client] || ::Aws::S3::Client.new(client_defaults)
+        @options[:client] ||= ::Aws::S3::Client.new(client_defaults)
+        @client = options[:client]
         @multipart_threshold = options[:multipart_threshold] || FIFTEEN_MEGABYTES
       end
 
