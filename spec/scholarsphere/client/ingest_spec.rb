@@ -3,10 +3,22 @@
 RSpec.describe Scholarsphere::Client::Ingest do
   let(:ingest) do
     described_class.new(
-      metadata: { title: 'Sample Title' },
+      metadata: { title: 'Sample Title', creator_aliases_attributes: [creator_alias] },
       files: files,
-      depositor: 'agw13'
+      depositor: 'jxd21'
     )
+  end
+
+  let(:creator_alias) do
+    {
+      alias: 'John Doe',
+      creator_attributes: {
+        email: 'jxd21@psu.edu',
+        given_name: 'John',
+        surname: 'Doe',
+        psu_id: 'jxd21'
+      }
+    }
   end
 
   describe '#publish' do
