@@ -18,13 +18,20 @@ module Scholarsphere
       def connection
         @connection ||= Faraday::Connection.new(
           url: ENV['SS4_ENDPOINT'],
-          headers: { 'Content-Type' => 'application/json' },
+          headers: { 
+            'Content-Type' => 'application/json',
+            'X-API-KEY' => api_key
+          },
           ssl: { verify: verify_ssl? }
         )
       end
 
       def verify_ssl?
         ENV['SS_CLIENT_SSL'] != 'false'
+      end
+
+      def api_key
+        ENV['SS_CLIENT_KEY']
       end
     end
   end
