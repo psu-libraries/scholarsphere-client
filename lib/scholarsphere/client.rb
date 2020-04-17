@@ -18,7 +18,7 @@ module Scholarsphere
       def connection
         @connection ||= Faraday::Connection.new(
           url: ENV['SS4_ENDPOINT'],
-          headers: { 
+          headers: {
             'Content-Type' => 'application/json',
             'X-API-KEY' => api_key
           },
