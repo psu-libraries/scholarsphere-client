@@ -9,7 +9,7 @@ module Scholarsphere
       # @param [Array<File,IO,Pathnme>] files or anything with IO.read
       # @param [String] depositor
       # @param optional [Hash] permissions
-      def initialize(metadata:, files:, depositor:, permissions: nil)
+      def initialize(metadata:, files:, depositor:, permissions: {})
         @files = files
         @metadata = metadata
         @depositor = depositor
@@ -22,7 +22,7 @@ module Scholarsphere
 
         connection.post do |req|
           req.url 'ingest'
-          req.body = { metadata: metadata, content: content, depositor: depositor }.to_json
+          req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions }.to_json
         end
       end
 
