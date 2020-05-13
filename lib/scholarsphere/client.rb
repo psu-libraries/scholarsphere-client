@@ -6,6 +6,7 @@ require 'faraday'
 require 'scholarsphere/s3'
 require 'scholarsphere/client/config'
 require 'scholarsphere/client/ingest'
+require 'scholarsphere/client/collection'
 require 'scholarsphere/client/version'
 
 module Scholarsphere
