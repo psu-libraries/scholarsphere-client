@@ -3,23 +3,21 @@
 module Scholarsphere
   module Client
     class Ingest
-      attr_reader :files, :metadata, :depositor, :permissions
+      attr_reader :content, :metadata, :depositor, :permissions
 
       # @param [Hash] metadata
-      # @param [Array<File,IO,Pathnme>] files or anything with IO.read
+      # @param [Array<File,IO,Pathnme,Hash>] files as an array of File or IO, or a hash with a :file param
       # @param [String] depositor
       # @param optional [Hash] permissions
       def initialize(metadata:, files:, depositor:, permissions: {})
-        @files = files
+        @content = build_content_hash(files)
         @metadata = metadata
         @depositor = depositor
         @permissions = permissions
       end
 
       def publish
-        uploaded_files.map { |file| uploader.upload(file) }
-        content = uploaded_files.map(&:to_shrine).map { |result| { file: result.to_json } }
-
+        upload_files
         connection.post do |req|
           req.url 'ingest'
           req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions }.to_json
@@ -28,14 +26,25 @@ module Scholarsphere
 
       private
 
-        def uploader
-          @uploader = S3::Uploader.new
+        def build_content_hash(files)
+          files.map do |file|
+            if file.is_a?(Hash)
+              file.merge(file: S3::UploadedFile.new(file.fetch(:file)))
+            else
+              { file: S3::UploadedFile.new(file) }
+            end
+          end
         end
 
-        def uploaded_files
-          @uploaded_files ||= files.map do |file|
-            S3::UploadedFile.new(file)
+        def upload_files
+          content.map do |file_parameters|
+            uploader.upload(file_parameters.fetch(:file))
+            file_parameters[:file] = file_parameters[:file].to_shrine.to_json
           end
+        end
+
+        def uploader
+          @uploader ||= S3::Uploader.new
         end
 
         def connection
