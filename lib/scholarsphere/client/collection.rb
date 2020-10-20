@@ -19,7 +19,12 @@ module Scholarsphere
       def create
         connection.post do |req|
           req.url 'collections'
-          req.body = { metadata: metadata, depositor: depositor, permissions: {}, work_noids: work_noids }.to_json
+          req.body = {
+            metadata: metadata,
+            depositor: depositor,
+            permissions: permissions,
+            work_noids: work_noids
+          }.to_json
         end
       end
 
