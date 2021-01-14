@@ -4,10 +4,10 @@ module Scholarsphere
   module S3
     ##
     #
-    # Represents a file on the client's file system that will be uploaded, but hasn't been yet. The object is
-    # constructed using a pathname for the file, and if desired, a checksum. The checksum is not required, and if it is
-    # not provided, the client will calculate one. Once initialized, the uploaded file object can be used by the client
-    # to make additional calls to the application.
+    # Represents a file on the client's file system to be uploaded into Scholarsphere. The object is constructed using a
+    # pathname for the file, and an optional checksum.  Once initialized, the object is used by the client to make
+    # additional calls to the application, including uploading the file into S3, and adding the resulting uploaded file
+    # to a work in Scholarsphere.
     #
     # ## Examples
     #
@@ -16,44 +16,36 @@ module Scholarsphere
     #     pathname = Pathname.new('path/to/your/file')
     #     uploaded_file = UploadedFile.new(pathname)
     #
-    # If the file is large, then calculating a checksum could be time-intensive. Providing one can avoid that. Or, if
+    # If the file is large, then calculating a checksum could be time-intensive. Providing one can avoid that, or, if
     # you already have a checksum from a trusted source, you can pass that along for the client to use:
     #
     #     uploaded_file = UploadedFile.new(pathname, checksum: '[md5 checksum hash]')
     #
+    # ## Checksum Verification
+    #
+    # Checksums are always used. If you don't provide one, the client will calculate one for you and use it when
+    # uploading the file, such as with S3::Uploader. AWS uses the provided checksum to verify the file's integrity, and
+    # if that check fails, an exception is raised. This avoids the prospect that the file could be corrupted during its
+    # transfer from the local client's filesystem into S3.
+    #
     class UploadedFile
-      # @return [Pathname] The location of the file to be uploaded
+      # @return [Pathname] The file to be uploaded on the client's filesystem
       attr_reader :source
 
-      # @param source [Pathname] The file to be uploaded
-      # @param options [Hash]
-      # @option options [String] :checksum The file's md5 checksum. If one is not provided, it will be calculated at
-      #   upload
-      def initialize(source, options = {})
-        @source = source
-        @checksum = options[:checksum]
+      # @param source [Pathname, File, IO, String] Object or path to the file
+      # @param checksum [String] Optional md5 checksum of the file
+      def initialize(source:, checksum: nil)
+        @source = Pathname.new(source)
+        @checksum = checksum
       end
 
-      # @return [Hash] Set of metadata needed by Shrine to upload the file
-      # @note this can be passed to a controller for uploading the file to Shrine
-      def to_shrine
+      # @return [Hash] Parameters required to add the file to a work in Scholarsphere
+      def to_param
         {
-          id: id,
-          storage: 'cache',
+          id: upload.id,
+          storage: upload.prefix,
           metadata: metadata
         }
-      end
-
-      # @return [String] A unique, randomly-generated UUID
-      # @note This serves as the name of the file in the S3 bucket. However, this original name of the file is kept as
-      #   metadata within the application so that it can be downloaded.
-      def id
-        @id ||= "#{SecureRandom.uuid}#{source.extname}"
-      end
-
-      # @return [String] Path of the file relative to the bucket in S3
-      def key
-        "#{prefix}/#{id}"
       end
 
       # @return [String] The md5 checksum encoded in base64. If you provided a checksum at initialization, that one will
@@ -70,9 +62,9 @@ module Scholarsphere
                          end
       end
 
-      # @return [String] Size of the file in bytes
-      def size
-        source.size
+      # @return [String] Pre-signed url used to upload the file into Scholarsphere's S3 instance.
+      def presigned_url
+        upload.url
       end
 
       private
@@ -87,8 +79,8 @@ module Scholarsphere
           }
         end
 
-        def prefix
-          ENV['SHRINE_CACHE_PREFIX'] || 'cache'
+        def upload
+          @upload ||= Client::Upload.new(extname: source.extname)
         end
     end
   end

@@ -2,43 +2,43 @@
 
 module Scholarsphere
   module S3
-    class Uploader < ::Aws::S3::FileUploader
-      FIFTEEN_MEGABYTES = 15 * 1024 * 1024
-
-      # @param [Hash] options
-      # @option options [Client] :client
-      # @option options [Integer] :multipart_threshold (15728640)
-      def initialize(options = {})
-        @options = options
-        @options[:client] ||= ::Aws::S3::Client.new(client_defaults)
-        @client = options[:client]
-        @multipart_threshold = options[:multipart_threshold] || FIFTEEN_MEGABYTES
+    ##
+    #
+    # Uploads a file to Scholarsphere's AWS S3 instance. When upload is invoked, a pre-signed URL is requested from
+    # Scholarsphere, and if successful, the file is then uploaded to Scholarsphere using the url.
+    #
+    # An md5 hash is calculated for the file at initialization to ensure the file is transferred successfully.
+    #
+    # # Example
+    #
+    #     uploaded_file = Scholarsphere::S3::UploadedFile.new('path/to/file')
+    #     uploader = Scholarsphere::S3::Uploader(file: uploaded_file)
+    #     response = uploader.upload
+    #
+    class Uploader
+      # @param file [UploadedFile]
+      def initialize(file:)
+        @file = file
+        @content_md5 = file.content_md5
       end
 
-      # @param [UploadedFile] uploaded_file
-      # @param [Hash] options of additional options
-      # @option options [String] content_md5 a base64-encoded string representating the md5 checksum
-      # @return [void]
-      # @note The content_md5 hash cannot be used when doing a multipart upload.
-      def upload(uploaded_file, options = {})
-        options[:bucket] = ENV['AWS_BUCKET']
-        options[:key] = uploaded_file.key
-        if uploaded_file.size < multipart_threshold
-          options[:content_md5] = uploaded_file.content_md5
+      # @return [Faraday::Response] The response from Scholarsphere to the upload request.
+      def upload
+        connection(file.presigned_url).put do |req|
+          req.body = file.source.read
+          req.headers['Content-MD5'] = file.content_md5
         end
-        super(uploaded_file.source, options)
       end
 
       private
 
-        def client_defaults
-          {
-            endpoint: ENV['S3_ENDPOINT'],
-            access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-            secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-            force_path_style: true,
-            region: ENV['AWS_REGION']
-          }
+        attr_reader :file, :content_md5
+
+        def connection(url)
+          Faraday::Connection.new(
+            url: url,
+            ssl: { verify: Scholarsphere::Client.verify_ssl? }
+          )
         end
     end
   end

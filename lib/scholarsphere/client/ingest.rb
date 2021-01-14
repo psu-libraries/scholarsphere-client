@@ -29,22 +29,18 @@ module Scholarsphere
         def build_content_hash(files)
           files.map do |file|
             if file.is_a?(Hash)
-              file.merge(file: S3::UploadedFile.new(file.fetch(:file)))
+              file.merge(file: S3::UploadedFile.new(source: file.fetch(:file)))
             else
-              { file: S3::UploadedFile.new(file) }
+              { file: S3::UploadedFile.new(source: file) }
             end
           end
         end
 
         def upload_files
           content.map do |file_parameters|
-            uploader.upload(file_parameters.fetch(:file))
-            file_parameters[:file] = file_parameters[:file].to_shrine.to_json
+            S3::Uploader.new(file: file_parameters.fetch(:file)).upload
+            file_parameters[:file] = file_parameters[:file].to_param.to_json
           end
-        end
-
-        def uploader
-          @uploader ||= S3::Uploader.new
         end
 
         def connection
