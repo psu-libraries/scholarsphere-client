@@ -7,3 +7,7 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - 'scholarsphere-client.gemspec'
+
+Gemspec/RequiredRubyVersion:
+  Exclude:
+    - 'scholarsphere-client.gemspec'

@@ -14,11 +14,12 @@ Gem::Specification.new do |spec|
   spec.description   = 'Client software to create new content for the Scholarsphere repository at Penn State.'
   spec.homepage      = 'https://github.com/psu-stewardship/scholarsphere-client'
 
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
-
-  spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/psu-stewardship/scholarsphere-client'
-  # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata = {
+    'homepage_uri' => spec.homepage,
+    'source_code_uri' => spec.homepage,
+    'documentation' => 'https://www.rubydoc.info/gems/scholarsphere-client',
+    'allowed_push_host' => 'https://rubygems.org'
+  }
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -41,4 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its', '~> 1.3'
   spec.add_development_dependency 'simplecov', '~> 0.18'
+  spec.add_development_dependency 'yard', '< 1.0'
 end

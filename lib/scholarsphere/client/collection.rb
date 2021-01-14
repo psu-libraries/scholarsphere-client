@@ -5,10 +5,10 @@ module Scholarsphere
     class Collection
       attr_reader :metadata, :depositor, :permissions, :work_noids
 
-      # @param [Hash] metadata
-      # @param [String] depositor
-      # @param optional [Hash] permissions
-      # @param optional [Array] work_noids
+      # @param metadata [Hash] Attributes for the collection
+      # @param depositor [String] Access ID of the depositor
+      # @param permissions [Hash] Additional permissions for the collection (optional)
+      # @param work_noids [Array<String>] List of of identifiers for works that belong to the collection
       def initialize(metadata:, depositor:, permissions: {}, work_noids: [])
         @metadata = metadata
         @depositor = depositor

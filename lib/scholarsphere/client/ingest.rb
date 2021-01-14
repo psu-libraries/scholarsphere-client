@@ -5,10 +5,10 @@ module Scholarsphere
     class Ingest
       attr_reader :content, :metadata, :depositor, :permissions
 
-      # @param [Hash] metadata
-      # @param [Array<File,IO,Pathnme,Hash>] files as an array of File or IO, or a hash with a :file param
-      # @param [String] depositor
-      # @param optional [Hash] permissions
+      # @param metadata [Hash] Metadata attributes
+      # @param files [Array<File,IO,Pathnme>,Hash] An array of File or IO objects, or a hash with a :file param
+      # @param depositor [String] The access ID of the depositor
+      # @param permissions [Hash] (optional) Additional permissions to apply to the resource
       def initialize(metadata:, files:, depositor:, permissions: {})
         @content = build_content_hash(files)
         @metadata = metadata
