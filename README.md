@@ -20,4 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-This client is in development and currently not supporting any features.
+You can read the [ruby docs](https://www.rubydoc.info/gems/scholarsphere-client) for the latest features.
+
+**Warning!**
+
+This is not yet in 1.0 status and features will change without the customary deprecation warnings.

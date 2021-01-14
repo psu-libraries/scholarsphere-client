@@ -15,9 +15,9 @@ module Scholarsphere
         @multipart_threshold = options[:multipart_threshold] || FIFTEEN_MEGABYTES
       end
 
-      # @param [UploadedFile]
-      # @param [Hash] of additional options
-      # @options options [String] content_md5 a base64-encoded string representating the md5 checksum
+      # @param [UploadedFile] uploaded_file
+      # @param [Hash] options of additional options
+      # @option options [String] content_md5 a base64-encoded string representating the md5 checksum
       # @return [void]
       # @note The content_md5 hash cannot be used when doing a multipart upload.
       def upload(uploaded_file, options = {})
