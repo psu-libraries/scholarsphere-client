@@ -52,6 +52,13 @@ module Scholarsphere
         source.size
       end
 
+      def presigned_url
+        body = JSON.parse(upload.body)
+        return body['url'] if upload.success?
+
+        raise Client::Error, body['message']
+      end
+
       private
 
         def metadata
@@ -64,6 +71,10 @@ module Scholarsphere
 
         def prefix
           ENV['SHRINE_CACHE_PREFIX'] || 'cache'
+        end
+
+        def upload
+          @upload ||= Client::Upload.create(file: self)
         end
     end
   end

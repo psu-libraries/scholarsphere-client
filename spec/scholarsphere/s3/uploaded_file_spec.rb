@@ -36,4 +36,23 @@ RSpec.describe Scholarsphere::S3::UploadedFile do
       )
     end
   end
+
+  describe '#presigned_url' do
+    context 'with a valid key' do
+      its(:presigned_url) { is_expected.to include('scholarsphere-dev/cache') }
+    end
+
+    context 'with an invalid key' do
+      let(:mock_upload) { instance_spy('Faraday::Response', success?: false, body: body) }
+      let(:body) { '{"message":"Bad request","errors":["param is missing or the value is empty: key"]}' }
+
+      before { allow(Scholarsphere::Client::Upload).to receive(:create).and_return(mock_upload) }
+
+      it 'raises an error' do
+        expect { file.presigned_url }.to raise_error(
+          Scholarsphere::Client::Error, 'Bad request'
+        )
+      end
+    end
+  end
 end
