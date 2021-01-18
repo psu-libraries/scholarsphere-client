@@ -10,6 +10,6 @@ RSpec.describe Scholarsphere::Client do
 
     it { is_expected.to be_a(Faraday::Connection) }
     its(:headers) { is_expected.to include('Content-Type' => 'application/json') }
-    its(:ssl) { is_expected.not_to be_verify }
+    its(:ssl) { is_expected.to be_verify }
   end
 end

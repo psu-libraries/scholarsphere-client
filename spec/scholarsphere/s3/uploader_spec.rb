@@ -6,7 +6,7 @@ RSpec.describe Scholarsphere::S3::Uploader do
   let(:path) { fixture_path('image.png') }
   let(:uploader) { described_class.new(file: file) }
 
-  describe '#upload' do
+  describe '#upload', :vcr do
     subject { uploader.upload }
 
     context 'with the default options' do

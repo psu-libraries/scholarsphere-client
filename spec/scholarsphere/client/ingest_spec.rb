@@ -30,7 +30,7 @@ RSpec.describe Scholarsphere::Client::Ingest do
     }
   end
 
-  describe '#publish' do
+  describe '#publish', :vcr do
     context 'with an array of files' do
       let(:metadata) { { title: 'Sample Title', creator_aliases_attributes: [creator_alias] } }
       let(:files) { [fixture_path('image.png'), fixture_path('ipsum.pdf')] }

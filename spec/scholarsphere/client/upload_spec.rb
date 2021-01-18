@@ -4,7 +4,7 @@ RSpec.describe Scholarsphere::Client::Upload do
   let(:upload) { described_class.new(extname: extname) }
   let(:response) { JSON.parse(upload.body) }
 
-  describe '#create' do
+  describe '#create', :vcr do
     context 'with a valid extension' do
       let(:extname) { 'pdf' }
 
