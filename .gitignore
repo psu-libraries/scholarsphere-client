@@ -12,4 +12,3 @@
 
 # Ignore application configuration
 /config/scholarsphere-client.yml
-Gemfile.lock
