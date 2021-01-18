@@ -15,3 +15,15 @@ jobs:
       - run:
           name: "Rubocop"
           command: bundle exec rubocop
+      - run:
+          name: "RSpec"
+          command: bundle exec rspec
+          environment:
+            SS4_ENDPOINT: "http://scholarsphere.test/api/v1"
+      - run:
+          name: "Copy VCR Logs"
+          when: on_fail
+          command: cp vcr.log /tmp/vcr.log
+      - store_artifacts:
+          path: /tmp/vcr.log
+          destination: VCR

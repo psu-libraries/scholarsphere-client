@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://scholarsphere.test/api/v1/collections
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"title":"Sample Title","creator_aliases_attributes":[{"alias":"John
+        Doe","actor_attributes":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"}}]},"depositor":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"},"permissions":{},"work_noids":[]}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"fb30dffde5c5f0a407f1195e499c88e1"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 0ded7963-81ad-4110-95db-83863bbdc844
+      X-Runtime:
+      - '0.054835'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:46:06 GMT
+      Content-Length:
+      - '105'
+    body:
+      encoding: UTF-8
+      string: '{"message":"Collection was successfully created","url":"/resources/4f0f6499-6edb-4874-a08d-0dbddb044c6d"}'
+  recorded_at: Mon, 18 Jan 2021 15:46:06 GMT
+recorded_with: VCR 6.0.0

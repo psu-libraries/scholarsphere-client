@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://scholarsphere.test/api/v1/uploads
+    body:
+      encoding: UTF-8
+      string: '{"extension":".png"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"71d8ebd38031c69a77ce632d96070609"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 5bad7453-2609-4db5-9d1a-3874a6e3e431
+      X-Runtime:
+      - '0.008021'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:58:16 GMT
+      Content-Length:
+      - '436'
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/2c498bdd-5aa1-43a4-ab02-f4031b254a47.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155816Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=2cb546e2fa5d73259af6f20a63e7e436da651286ba7a7e0b3980ef0caa702821","id":"2c498bdd-5aa1-43a4-ab02-f4031b254a47.png","prefix":"cache"}'
+  recorded_at: Mon, 18 Jan 2021 15:58:16 GMT
+recorded_with: VCR 6.0.0

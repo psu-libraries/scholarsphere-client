@@ -13,7 +13,7 @@ RSpec.describe Scholarsphere::S3::UploadedFile do
     it { is_expected.to be_a(Pathname) }
   end
 
-  describe '#to_param' do
+  describe '#to_param', :vcr do
     let(:params) { file.to_param }
 
     it 'returns a hash of required parameters' do
@@ -39,7 +39,7 @@ RSpec.describe Scholarsphere::S3::UploadedFile do
     end
   end
 
-  describe '#presigned_url' do
+  describe '#presigned_url', :vcr do
     subject { file.presigned_url }
 
     it { is_expected.to include('scholarsphere-dev/cache') }

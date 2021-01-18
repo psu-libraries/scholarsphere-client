@@ -1,0 +1,248 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://scholarsphere.test/api/v1/uploads
+    body:
+      encoding: UTF-8
+      string: '{"extension":".png"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"f0dd8bea1404b970173e75fbfec10ac9"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - df4eb28c-e3f8-4958-b0d6-67aa0e5aaa81
+      X-Runtime:
+      - '0.008227'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:50:26 GMT
+      Content-Length:
+      - '436'
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/7d337014-1b1b-40c9-8201-f0b613b02ec3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155026Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=64911fffa8cd18449a8af3387f3aa35deaa55a15dffb5826d2c8848a453256f2","id":"7d337014-1b1b-40c9-8201-f0b613b02ec3.png","prefix":"cache"}'
+  recorded_at: Mon, 18 Jan 2021 15:50:26 GMT
+- request:
+    method: put
+    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/7d337014-1b1b-40c9-8201-f0b613b02ec3.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=asdf/20210118/us-east-1/s3/aws4_request&X-Amz-Date=20210118T155026Z&X-Amz-Expires=900&X-Amz-Signature=64911fffa8cd18449a8af3387f3aa35deaa55a15dffb5826d2c8848a453256f2&X-Amz-SignedHeaders=host
+    body:
+      encoding: UTF-8
+      base64_string: image-content
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Content-Md5:
+      - MwNrG//gg8XTCCTx/yBLkA==
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '0'
+      Content-Security-Policy:
+      - block-all-mixed-content
+      Etag:
+      - '"33036b1bffe083c5d30824f1ff204b90"'
+      Server:
+      - MinIO/RELEASE.2020-07-31T03-39-05Z
+      Vary:
+      - Origin
+      X-Amz-Request-Id:
+      - 165B5E58BE8D0A90
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:50:26 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 18 Jan 2021 15:50:26 GMT
+- request:
+    method: post
+    uri: http://scholarsphere.test/api/v1/uploads
+    body:
+      encoding: UTF-8
+      string: '{"extension":".pdf"}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"85471fe322f9e093e53dfb69b96f337b"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - dcb2702a-ab2b-4376-863b-d74d05394d20
+      X-Runtime:
+      - '0.007692'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:50:26 GMT
+      Content-Length:
+      - '436'
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/dfc0aecb-f2cc-45bf-b1df-be20a5a1c37a.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155026Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=bc7194141785c18cc72c6a071bc30896f0d583b2a43a176ce82c3bd0518fb1e8","id":"dfc0aecb-f2cc-45bf-b1df-be20a5a1c37a.pdf","prefix":"cache"}'
+  recorded_at: Mon, 18 Jan 2021 15:50:26 GMT
+- request:
+    method: put
+    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/dfc0aecb-f2cc-45bf-b1df-be20a5a1c37a.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=asdf/20210118/us-east-1/s3/aws4_request&X-Amz-Date=20210118T155026Z&X-Amz-Expires=900&X-Amz-Signature=bc7194141785c18cc72c6a071bc30896f0d583b2a43a176ce82c3bd0518fb1e8&X-Amz-SignedHeaders=host
+    body:
+      encoding: UTF-8
+      base64_string: image-content
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Content-Md5:
+      - BMh4+xVJaKrfOkleICrlow==
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '0'
+      Content-Security-Policy:
+      - block-all-mixed-content
+      Etag:
+      - '"04c878fb154968aadf3a495e202ae5a3"'
+      Server:
+      - MinIO/RELEASE.2020-07-31T03-39-05Z
+      Vary:
+      - Origin
+      X-Amz-Request-Id:
+      - 165B5E58C0F09B1C
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:50:27 GMT
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 18 Jan 2021 15:50:26 GMT
+- request:
+    method: post
+    uri: http://scholarsphere.test/api/v1/ingest
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"title":"Sample Title","creator_aliases_attributes":[{"alias":"John
+        Doe","actor_attributes":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"}}]},"content":[{"file":"{\"id\":\"7d337014-1b1b-40c9-8201-f0b613b02ec3.png\",\"storage\":\"cache\",\"metadata\":{\"size\":63960,\"filename\":\"image.png\",\"mime_type\":\"image/png\"}}"},{"file":"{\"id\":\"dfc0aecb-f2cc-45bf-b1df-be20a5a1c37a.pdf\",\"storage\":\"cache\",\"metadata\":{\"size\":16798,\"filename\":\"ipsum.pdf\",\"mime_type\":\"application/pdf\"}}"}],"depositor":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"},"permissions":{}}'
+    headers:
+      Content-Type:
+      - application/json
+      X-Api-Key:
+      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"31d36a94ed4ac037b3936c6988e06eff"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Request-Id:
+      - 27c7318c-81b8-4401-8bff-b8265bbb2752
+      X-Runtime:
+      - '0.194404'
+      X-Xss-Protection:
+      - 1; mode=block
+      Date:
+      - Mon, 18 Jan 2021 15:50:27 GMT
+      Content-Length:
+      - '99'
+    body:
+      encoding: UTF-8
+      string: '{"message":"Work was successfully created","url":"/resources/393ea1d0-5b2b-4a05-993c-6a7d14c9a022"}'
+  recorded_at: Mon, 18 Jan 2021 15:50:27 GMT
+recorded_with: VCR 6.0.0

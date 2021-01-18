@@ -29,7 +29,7 @@ RSpec.describe Scholarsphere::Client::Collection do
     }
   end
 
-  describe '#create' do
+  describe '#create', :vcr do
     it 'creates a new collection in Scholarsphere' do
       response = collection.create
       expect(response.status).to eq(200)
