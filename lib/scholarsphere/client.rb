@@ -7,6 +7,7 @@ require 'scholarsphere/s3'
 require 'scholarsphere/client/config'
 require 'scholarsphere/client/ingest'
 require 'scholarsphere/client/collection'
+require 'scholarsphere/client/upload'
 require 'scholarsphere/client/version'
 
 module Scholarsphere
