@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.metadata = {
     'homepage_uri' => spec.homepage,
     'source_code_uri' => spec.homepage,
-    'documentation' => 'https://www.rubydoc.info/gems/scholarsphere-client',
+    'documentation_uri' => 'https://www.rubydoc.info/github/psu-stewardship/scholarsphere-client/main',
     'allowed_push_host' => 'https://rubygems.org'
   }
 
