@@ -41,8 +41,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '>= 12.3.3'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its', '~> 1.3'
-  spec.add_development_dependency 'simplecov', '~> 0.18'
   spec.add_development_dependency 'vcr', '~> 6.0'
   spec.add_development_dependency 'webmock', '~> 3.11'
   spec.add_development_dependency 'yard', '< 1.0'
+
+  # Latest version of simplecov is not compatible with Code Climate
+  spec.add_development_dependency 'simplecov', '< 0.18'
 end

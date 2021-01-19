@@ -1,0 +1,5 @@
+# Scholarsphere client configuration
+
+SS4_ENDPOINT:            "http://scholarsphere.endpoint"
+SS_CLIENT_SSL:           "false"
+
