@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":""}'
@@ -37,17 +37,18 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 7d313435-2759-4ad7-871c-4a9cade4b52c
+      - 4db54d9f-5878-4a97-95ec-cc60c90f40cd
       X-Runtime:
-      - '0.008204'
+      - '0.007340'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:51:46 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
       Content-Length:
       - '88'
     body:
       encoding: UTF-8
-      string: '{"message":"Bad request","errors":["param is missing or the value is empty: extension"]}'
-  recorded_at: Mon, 18 Jan 2021 15:51:46 GMT
+      string: '{"message":"Bad request","errors":["param is missing or the value is
+        empty: extension"]}'
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 recorded_with: VCR 6.0.0

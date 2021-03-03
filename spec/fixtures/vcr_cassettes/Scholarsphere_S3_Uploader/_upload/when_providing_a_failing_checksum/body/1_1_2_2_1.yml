@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":".png"}'
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"189b9370123b2855b13acd4086c22bbd"
+      - W/"96b25d6ee3af37d5cf703fca4014de77"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -39,25 +39,25 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - fc2a1088-79b2-477c-b28b-dc147c38da28
+      - e3616c97-830d-457d-8083-c1fbe39fdfe5
       X-Runtime:
-      - '0.007735'
+      - '0.013325'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:55:19 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
       Content-Length:
-      - '436'
+      - '445'
     body:
       encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/7ec5e6c6-5644-4bf0-b8a3-8cef3c67763c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155519Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=35ea3285ae0ba190a916904d2671287369a8bd83f7a85cc44e45daa03c604c61","id":"7ec5e6c6-5644-4bf0-b8a3-8cef3c67763c.png","prefix":"cache"}'
-  recorded_at: Mon, 18 Jan 2021 15:55:19 GMT
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/6904ddaa-1240-48d0-b2b6-8b75654d7508.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T200027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=87b9e11b7f2ca07ac0b54cb943c791f4ae670e5a7d1677eb14fef14d45af8b0f","id":"6904ddaa-1240-48d0-b2b6-8b75654d7508.png","prefix":"cache"}'
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 - request:
     method: put
-    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/7ec5e6c6-5644-4bf0-b8a3-8cef3c67763c.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=asdf/20210118/us-east-1/s3/aws4_request&X-Amz-Date=20210118T155519Z&X-Amz-Expires=900&X-Amz-Signature=35ea3285ae0ba190a916904d2671287369a8bd83f7a85cc44e45daa03c604c61&X-Amz-SignedHeaders=host
+    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/6904ddaa-1240-48d0-b2b6-8b75654d7508.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=scholarsphere/20210303/us-east-1/s3/aws4_request&X-Amz-Date=20210303T200027Z&X-Amz-Expires=900&X-Amz-Signature=87b9e11b7f2ca07ac0b54cb943c791f4ae670e5a7d1677eb14fef14d45af8b0f&X-Amz-SignedHeaders=host
     body:
       encoding: UTF-8
-      base64_string: image-content
+      base64_string: 'imagecontent'
     headers:
       User-Agent:
       - Faraday v1.0.1
@@ -87,15 +87,15 @@ http_interactions:
       Vary:
       - Origin
       X-Amz-Request-Id:
-      - 165B5E9CD2CF51F4
+      - 1668ED864A354D04
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:55:19 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
     body:
       encoding: UTF-8
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
-        <Error><Code>BadDigest</Code><Message>The Content-Md5 you specified did not match what we received.</Message><Key>cache/7ec5e6c6-5644-4bf0-b8a3-8cef3c67763c.png</Key><BucketName>scholarsphere-dev</BucketName><Resource>/scholarsphere-dev/cache/7ec5e6c6-5644-4bf0-b8a3-8cef3c67763c.png</Resource><RequestId>165B5E9CD2CF51F4</RequestId><HostId>ff55eeaa-9e90-46e2-9c0f-38a0ed91ddf6</HostId></Error>
-  recorded_at: Mon, 18 Jan 2021 15:55:19 GMT
+        <Error><Code>BadDigest</Code><Message>The Content-Md5 you specified did not match what we received.</Message><Key>cache/6904ddaa-1240-48d0-b2b6-8b75654d7508.png</Key><BucketName>scholarsphere-dev</BucketName><Resource>/scholarsphere-dev/cache/6904ddaa-1240-48d0-b2b6-8b75654d7508.png</Resource><RequestId>1668ED864A354D04</RequestId><HostId>09786e77-b9c1-49e5-a910-af4b329b638a</HostId></Error>
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 recorded_with: VCR 6.0.0

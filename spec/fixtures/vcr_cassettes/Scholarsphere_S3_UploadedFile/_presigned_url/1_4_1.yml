@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":".png"}'
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"71d8ebd38031c69a77ce632d96070609"
+      - W/"5dc2b9afbbac6bfc5bb07fdf33ee5c9a"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -39,17 +39,17 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 5bad7453-2609-4db5-9d1a-3874a6e3e431
+      - 60cc7f2f-2199-42ed-bed5-8c3e7458768e
       X-Runtime:
-      - '0.008021'
+      - '0.008285'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:58:16 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
       Content-Length:
-      - '436'
+      - '445'
     body:
       encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/2c498bdd-5aa1-43a4-ab02-f4031b254a47.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155816Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=2cb546e2fa5d73259af6f20a63e7e436da651286ba7a7e0b3980ef0caa702821","id":"2c498bdd-5aa1-43a4-ab02-f4031b254a47.png","prefix":"cache"}'
-  recorded_at: Mon, 18 Jan 2021 15:58:16 GMT
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/dccc11fd-4ad7-4b98-988d-0e8c7f1345fe.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T200027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=c64fbc3676e76a21cfef7c6462565feb4ad5095593a3eb2c9d417452ba8320f5","id":"dccc11fd-4ad7-4b98-988d-0e8c7f1345fe.png","prefix":"cache"}'
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 recorded_with: VCR 6.0.0

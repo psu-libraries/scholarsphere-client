@@ -28,6 +28,10 @@ module Scholarsphere
         )
       end
 
+      def reset
+        @connection = nil
+      end
+
       def verify_ssl?
         ENV['SS_CLIENT_SSL'] != 'false'
       end
