@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":".png"}'
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"05fe8bcfe002993110c522e62944b82c"
+      - W/"c8134d455290bfb93003976dab3ac19e"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -39,25 +39,25 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 56cb70fb-07f6-418b-a057-8f5ba934088f
+      - 61630ddb-b98c-4f1f-8659-43a4bdc942b4
       X-Runtime:
-      - '0.024040'
+      - '0.038050'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:50:27 GMT
+      - Wed, 03 Mar 2021 19:56:34 GMT
       Content-Length:
-      - '436'
+      - '445'
     body:
       encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/2c6b6f30-280c-4126-af21-8325db94cc71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=76bd006da99af0b0510ff0c39133c445d758529bbbe90669b48bfc333b8ceaeb","id":"2c6b6f30-280c-4126-af21-8325db94cc71.png","prefix":"cache"}'
-  recorded_at: Mon, 18 Jan 2021 15:50:27 GMT
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/8e93babf-46bb-409d-a906-b296a0482c7a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T195634Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=a97c69943ae98dce92feb89fd65bf0fcde8cd0c3f6f703c5f28698c91c6c5e43","id":"8e93babf-46bb-409d-a906-b296a0482c7a.png","prefix":"cache"}'
+  recorded_at: Wed, 03 Mar 2021 19:56:34 GMT
 - request:
     method: put
-    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/2c6b6f30-280c-4126-af21-8325db94cc71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=asdf/20210118/us-east-1/s3/aws4_request&X-Amz-Date=20210118T155027Z&X-Amz-Expires=900&X-Amz-Signature=76bd006da99af0b0510ff0c39133c445d758529bbbe90669b48bfc333b8ceaeb&X-Amz-SignedHeaders=host
+    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/8e93babf-46bb-409d-a906-b296a0482c7a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=scholarsphere/20210303/us-east-1/s3/aws4_request&X-Amz-Date=20210303T195634Z&X-Amz-Expires=900&X-Amz-Signature=a97c69943ae98dce92feb89fd65bf0fcde8cd0c3f6f703c5f28698c91c6c5e43&X-Amz-SignedHeaders=host
     body:
       encoding: UTF-8
-      base64_string: image-content
+      base64_string: 'imagecontent'
     headers:
       User-Agent:
       - Faraday v1.0.1
@@ -87,22 +87,22 @@ http_interactions:
       Vary:
       - Origin
       X-Amz-Request-Id:
-      - 165B5E58CFF94230
+      - 1668ED500121506C
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:50:27 GMT
+      - Wed, 03 Mar 2021 19:56:34 GMT
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Mon, 18 Jan 2021 15:50:27 GMT
+  recorded_at: Wed, 03 Mar 2021 19:56:34 GMT
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/ingest
+    uri: https://scholarsphere.test/api/v1/ingest
     body:
       encoding: UTF-8
-      string: '{"metadata":{"title":"Array of Hashes for Files","creator_aliases_attributes":[{"alias":"John
-        Doe","actor_attributes":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"}}]},"content":[{"file":"{\"id\":\"2c6b6f30-280c-4126-af21-8325db94cc71.png\",\"storage\":\"cache\",\"metadata\":{\"size\":63960,\"filename\":\"image.png\",\"mime_type\":\"image/png\"}}","deposited_at":"2012-05-16T00:00:00+00:00"}],"depositor":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"},"permissions":{}}'
+      string: '{"metadata":{"title":"Array of Hashes for Files","creators_attributes":[{"display_name":"Dan
+        Coughlin","actor_attributes":{"psu_id":"dmc186","surname":"Coughlin","given_name":"Dan","email":"dmc186@psu.edu"}}]},"content":[{"file":"{\"id\":\"8e93babf-46bb-409d-a906-b296a0482c7a.png\",\"storage\":\"cache\",\"metadata\":{\"size\":63960,\"filename\":\"image.png\",\"mime_type\":\"image/png\"}}","deposited_at":"2012-05-16T00:00:00+00:00"}],"depositor":{"psu_id":"agw13","surname":"Wead","given_name":"Adam","email":"agw13@psu.edu"},"permissions":{}}'
     headers:
       Content-Type:
       - application/json
@@ -124,7 +124,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"d64687b7925e6d37c7e8e8eba69c3863"
+      - W/"f92fd8cd039b57472e8b229f97832273"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -136,17 +136,17 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 239c464a-875c-4284-a5b7-f405899d9f25
+      - 6fb51f09-7cfa-4078-8659-a67f2485787e
       X-Runtime:
-      - '0.164415'
+      - '0.127356'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:50:27 GMT
+      - Wed, 03 Mar 2021 19:56:34 GMT
       Content-Length:
       - '99'
     body:
       encoding: UTF-8
-      string: '{"message":"Work was successfully created","url":"/resources/1ede5493-ca4e-43f1-ad2f-24978a26b47e"}'
-  recorded_at: Mon, 18 Jan 2021 15:50:27 GMT
+      string: '{"message":"Work was successfully created","url":"/resources/c0a13467-5f00-4c79-a822-eeb229ccb4be"}'
+  recorded_at: Wed, 03 Mar 2021 19:56:34 GMT
 recorded_with: VCR 6.0.0

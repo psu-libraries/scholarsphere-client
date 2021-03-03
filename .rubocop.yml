@@ -11,3 +11,6 @@ Metrics/BlockLength:
 Gemspec/RequiredRubyVersion:
   Exclude:
     - 'scholarsphere-client.gemspec'
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false

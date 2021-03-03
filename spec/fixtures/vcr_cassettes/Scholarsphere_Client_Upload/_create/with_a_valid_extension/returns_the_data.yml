@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":"pdf"}'
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"2a48de5209875f3dcd9a6a0c98d670c0"
+      - W/"14beb482b5de2ccca1f5a00a69d09c37"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -39,17 +39,17 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - 8b1c1100-e4fb-4b48-9cca-be9ad01e89b1
+      - af6464a3-d0b8-4007-9159-a556ba291667
       X-Runtime:
-      - '0.008003'
+      - '0.009673'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:51:46 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
       Content-Length:
-      - '436'
+      - '445'
     body:
       encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/1006f615-16fc-4375-abfc-558c212e689f.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155146Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=ae0bddf4f6f9628d8584c04d7a1e350eba7373a5721167201d252934f32400fd","id":"1006f615-16fc-4375-abfc-558c212e689f.pdf","prefix":"cache"}'
-  recorded_at: Mon, 18 Jan 2021 15:51:46 GMT
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/eb2334ef-bcc9-442f-a013-3d78567b83fa.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T200027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=b2448b93b61ddcc118395d5307288fa9a20225d7179c206b39bed55fb721e41c","id":"eb2334ef-bcc9-442f-a013-3d78567b83fa.pdf","prefix":"cache"}'
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 recorded_with: VCR 6.0.0

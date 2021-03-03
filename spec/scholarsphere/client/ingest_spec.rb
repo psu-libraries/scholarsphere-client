@@ -9,30 +9,37 @@ RSpec.describe Scholarsphere::Client::Ingest do
     )
   end
 
-  let(:depositor) do
+  let(:metadata) do
     {
-      email: 'jxd21@psu.edu',
-      given_name: 'John',
-      surname: 'Doe',
-      psu_id: 'jxd21'
+      title: title,
+      creators_attributes: [creators]
     }
   end
 
-  let(:creator_alias) do
+  let(:depositor) do
     {
-      alias: 'John Doe',
+      psu_id: 'agw13',
+      surname: 'Wead',
+      given_name: 'Adam',
+      email: 'agw13@psu.edu'
+    }
+  end
+
+  let(:creators) do
+    {
+      display_name: 'Dan Coughlin',
       actor_attributes: {
-        email: 'jxd21@psu.edu',
-        given_name: 'John',
-        surname: 'Doe',
-        psu_id: 'jxd21'
+        psu_id: 'dmc186',
+        surname: 'Coughlin',
+        given_name: 'Dan',
+        email: 'dmc186@psu.edu'
       }
     }
   end
 
   describe '#publish', :vcr do
     context 'with an array of files' do
-      let(:metadata) { { title: 'Sample Title', creator_aliases_attributes: [creator_alias] } }
+      let(:title) { 'Sample Title' }
       let(:files) { [fixture_path('image.png'), fixture_path('ipsum.pdf')] }
 
       it 'publishes new works into Scholarsphere' do
@@ -43,7 +50,7 @@ RSpec.describe Scholarsphere::Client::Ingest do
     end
 
     context 'with an array of hashes specifying the deposit date' do
-      let(:metadata) { { title: 'Array of Hashes for Files', creator_aliases_attributes: [creator_alias] } }
+      let(:title) { 'Array of Hashes for Files' }
       let(:files) do
         [
           {

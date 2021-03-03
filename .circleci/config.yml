@@ -19,7 +19,7 @@ jobs:
           name: "RSpec"
           command: bundle exec rspec
           environment:
-            SS4_ENDPOINT: "http://scholarsphere.test/api/v1"
+            SS4_ENDPOINT: "https://scholarsphere.test/api/v1"
       - run:
           name: "Copy VCR Logs"
           when: on_fail

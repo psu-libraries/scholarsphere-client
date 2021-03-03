@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere.test/api/v1/uploads
+    uri: https://scholarsphere.test/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":".png"}'
@@ -27,7 +27,7 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - W/"e03398fd064517fd4a444c386c9b0e74"
+      - W/"666f29ee520645c15bdf822d5f62f0d9"
       Referrer-Policy:
       - strict-origin-when-cross-origin
       X-Content-Type-Options:
@@ -39,25 +39,25 @@ http_interactions:
       X-Permitted-Cross-Domain-Policies:
       - none
       X-Request-Id:
-      - '08ba727c-1d0d-4255-b907-a088061d71bd'
+      - 5b818bb3-fcae-445a-aae4-22cdecc36dee
       X-Runtime:
-      - '0.007791'
+      - '0.012120'
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:55:19 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
       Content-Length:
-      - '436'
+      - '445'
     body:
       encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/b9a5c6b8-6a21-429d-bd67-a5af4a6912ef.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=asdf%2F20210118%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210118T155519Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=98143b79f47a524ec378e864e7ce265afbccb7f99a1a3da2cc0e91479602c119","id":"b9a5c6b8-6a21-429d-bd67-a5af4a6912ef.png","prefix":"cache"}'
-  recorded_at: Mon, 18 Jan 2021 15:55:19 GMT
+      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/a702c6a0-23a2-45ff-810f-185bb22ab2b6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T200027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=2909f6ce689cc790247995d920dbb1e4c1ba97fa1c7ee7ac766e56498597e019","id":"a702c6a0-23a2-45ff-810f-185bb22ab2b6.png","prefix":"cache"}'
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 - request:
     method: put
-    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/b9a5c6b8-6a21-429d-bd67-a5af4a6912ef.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=asdf/20210118/us-east-1/s3/aws4_request&X-Amz-Date=20210118T155519Z&X-Amz-Expires=900&X-Amz-Signature=98143b79f47a524ec378e864e7ce265afbccb7f99a1a3da2cc0e91479602c119&X-Amz-SignedHeaders=host
+    uri: http://127.0.0.1:9000/scholarsphere-dev/cache/a702c6a0-23a2-45ff-810f-185bb22ab2b6.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=scholarsphere/20210303/us-east-1/s3/aws4_request&X-Amz-Date=20210303T200027Z&X-Amz-Expires=900&X-Amz-Signature=2909f6ce689cc790247995d920dbb1e4c1ba97fa1c7ee7ac766e56498597e019&X-Amz-SignedHeaders=host
     body:
       encoding: UTF-8
-      base64_string: image-content
+      base64_string: 'imagecontent'
     headers:
       User-Agent:
       - Faraday v1.0.1
@@ -87,13 +87,13 @@ http_interactions:
       Vary:
       - Origin
       X-Amz-Request-Id:
-      - 165B5E9CCE6E2B1C
+      - 1668ED8643D8A6A4
       X-Xss-Protection:
       - 1; mode=block
       Date:
-      - Mon, 18 Jan 2021 15:55:19 GMT
+      - Wed, 03 Mar 2021 20:00:27 GMT
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Mon, 18 Jan 2021 15:55:19 GMT
+  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
 recorded_with: VCR 6.0.0
