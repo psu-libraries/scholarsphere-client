@@ -17,6 +17,7 @@ module Scholarsphere
     Config.load_defaults
 
     class << self
+      # @return [Faraday::Connection] A cached connection to the Scholarsphere API with the provided credentials.
       def connection
         @connection ||= Faraday::Connection.new(
           url: ENV['SS4_ENDPOINT'],
@@ -28,14 +29,18 @@ module Scholarsphere
         )
       end
 
+      # @return [nil] Resets the client connection when needed.
       def reset
         @connection = nil
       end
 
+      # @return [TrueClass, FalseClass] If set to 'false', Faraday will not verify the SSL certificate. This is mostly
+      #   used for testing. Default is 'true'.
       def verify_ssl?
         ENV['SS_CLIENT_SSL'] != 'false'
       end
 
+      # @return [String] Alphanumeric API key that grants access to the API.
       def api_key
         ENV['SS_CLIENT_KEY']
       end

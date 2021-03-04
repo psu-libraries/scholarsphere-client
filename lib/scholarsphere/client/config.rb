@@ -7,11 +7,16 @@ module Scholarsphere
     # Loads the yaml configuration file for the client. The default location is `config/scholarsphere-client.yml` and
     # the client will load this file automatically whenever it is invoked.
     #
-    # The configuration file should contain the endpoint of the Scholarsphere API.
+    # The configuration file should contain the endpoint of the Scholarsphere API and the API key.
     #
-    # # Example
+    # ## Required
     #
-    #     SS4_ENDPOINT: "http://scholarsphere.psu.edu/api/v1"
+    #     SS4_ENDPOINT:   "https://scholarsphere.psu.edu/api/v1"
+    #     SS_CLIENT_KEY:  "[key]"
+    #
+    # ## Optional
+    #
+    #     SS_CLIENT_SSL:  "false"
     #
     class Config
       # @private
