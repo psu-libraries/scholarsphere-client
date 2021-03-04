@@ -2,12 +2,98 @@
 
 module Scholarsphere
   module Client
+    ##
+    #
+    # Uploads a complete work into Scholarsphere. If successful, the work will be published and made
+    # publicly available.
+    #
+    # ## Publishing a New Work
+    #
+    # The most common use case is uploading a single file with the required metadata:
+    #
+    #     ingest = Scholarsphere::Client::Ingest.new(
+    #       metadata: metadata,
+    #       files: files,
+    #       depositor: depositor
+    #     )
+    #     response = ingest.publish
+    #
+    # If the response is successful, the application returns 200 OK with JSON:
+    #
+    #     puts response.body
+    #     {
+    #       "message": "Work was successfully created",
+    #       "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a"
+    #     }
+    #
+    # Other possible outcomes include:
+    #
+    #   * work was created, but not successfully published because of missing attributes (201 Created)
+    #   * work could not be created due to insufficient parameters (422 Unprocessable Entity)
+    #   * there was an error with the application (500 Internal Server Error)
+    #
+    # If possible, the response will include additional information about which errors occurred and which attributes are
+    # required or are incorrect.
+    #
+    # ## Metadata
+    #
+    # A hash of descriptive metadata about the work. The minimal amount required in order to publish would be:
+    #
+    #     {
+    #       title: "[descriptive title of the work]",
+    #       creators_attributes: [
+    #         {
+    #           display_name: '[Penn State Person]',
+    #           actor_attributes: {
+    #             psu_id: 'abc123',
+    #             surname: '[family name]',
+    #             given_name: '[given name]',
+    #             email: 'abc123@psu.edu'
+    #           }
+    #         }
+    #       ]
+    #     }
+    #
+    # For a complete listing of all the possible metadata values, see the OpenAPI docs for
+    # Scholarsphere.
+    #
+    # ## Files
+    #
+    #     [
+    #       Pathname.new('MyPaper.pdf'),
+    #       Pathname.new('dataset.dat')
+    #     ]
+    #
+    # One or more files are required in order for the work be published. The simplest method is an array of `IO`
+    # objects. The client then uploads them into S3.
+    #
+    # *Note: All filenames must have an extension!*
+    #
+    # ## Depositor
+    #
+    #     {
+    #       psu_id: '[Penn State Person]',
+    #       surname: '[family name]',
+    #       given_name: '[given name]',
+    #       email: 'abc123@psu.edu'
+    #     }
+    #
+    # Currently, the person identified as the depositor must have an active access account at Penn State. In most cases,
+    # the depositor will be the same person as the creator specified in the metadata; although, this is not always the
+    # case.  The depositor may be someone who is uploading on behalf of the creator and is not affiliated with the
+    # creation of the work. The depositor is *not* the client itself, either. The client is identified separately via
+    # the API token.
+    #
+    # Note that the fields are the same for both `creators_attributes` and `depositor`, so if the depositor is the same
+    # as the creator, all the values will need to be duplicated.
+    #
+    #
     class Ingest
       attr_reader :content, :metadata, :depositor, :permissions
 
       # @param metadata [Hash] Metadata attributes
       # @param files [Array<File,IO,Pathnme>,Hash] An array of File or IO objects, or a hash with a :file param
-      # @param depositor [String] The access ID of the depositor
+      # @param depositor [Hash] The name and access id of the depositor
       # @param permissions [Hash] (optional) Additional permissions to apply to the resource
       def initialize(metadata:, files:, depositor:, permissions: {})
         @content = build_content_hash(files)
@@ -16,6 +102,7 @@ module Scholarsphere
         @permissions = permissions
       end
 
+      # @return [Faraday::Response] The response from the Scholarsphere application.
       def publish
         upload_files
         connection.post do |req|
