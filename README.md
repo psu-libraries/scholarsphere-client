@@ -6,9 +6,7 @@ Ruby client to update and create content in the Scholarsphere repository.
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'scholarsphere-client'
-```
+    gem 'scholarsphere-client'
 
 And then execute:
 
@@ -33,42 +31,43 @@ If you are using a testing instance, you'll need to disable ssl verification:
 
 ### Ingesting
 
+See the `sample.rb` file for an executable example.
+
 To publish a work:
 
-    metadata = {
-      title: "My Awesome Work",
-      creators_attributes: [
-        {
-          display_name: 'Dr. Pat Researcher',
-          actor_attributes: {
-            psu_id: 'pxr123',
-            surname: 'Researcher',
-            given_name: 'Pat',
-            email: 'pxr123@psu.edu'
-          }
-        }
-      ]
-    }
+``` ruby
+metadata = {
+  work_type: 'dataset',
+  visibility: 'open',
+  rights: 'https://creativecommons.org/licenses/by/4.0/',
+  title: 'Sample Title',
+  description: "This is a sample work",
+  published_date: '2010-01-01',
+  creators: [
+    { orcid: '0000-0000-1111-222X' },
+    { psu_id: 'axb123' },
+    { display_name: 'Dr. Unidentified Creator' }
+  ]
+}
 
-    files = [ File.new('path/to/file') ]
+files = [
+  Pathname.new("/path/to/file1.txt"),
+  Pathname.new("/path/to/file2.txt")
+]
 
-    depositor = {
-      psu_id: 'pxr123',
-      surname: 'Researcher',
-      given_name: 'Pat',
-      email: 'pxr123@psu.edu'
-    }
+ingest = Scholarsphere::Client::Ingest.new(
+  metadata: metadata,
+  files: files,
+  depositor: 'axb123'
+)
 
-    ingest = Scholarsphere::Client::Ingest.new(
-      metadata: metadata,
-      files: files,
-      depositor: depositor
-    )
+response = ingest.publish
 
-    response = ingest.publish
+puts response.body
+```
 
-    puts response.body
-
+The json output should look like:
+    
     { 
       "message": "Work was successfully created",
       "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a"
