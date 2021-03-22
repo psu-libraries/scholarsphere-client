@@ -26,6 +26,7 @@ module Scholarsphere
       def upload
         connection(file.presigned_url).put do |req|
           req.body = file.source.read
+          req.headers['Content-MD5'] = file.content_md5
         end
       end
 
