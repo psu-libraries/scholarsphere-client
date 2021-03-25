@@ -76,3 +76,23 @@ The json output should look like:
 ## Documentation
 
 You can read the [ruby docs](https://www.rubydoc.info/github/psu-stewardship/scholarsphere-client/main) for the latest features.
+
+## Testing
+
+### Using an Existing Deployment
+
+RSpec tests are run against saved API responses that are recorded using the VCR gem. If we want to run the test
+suite against a live instance to see if our client works against a given deployment, update the endpoint in
+`config/scholarsphere-client.yml` and run:
+
+    DISABLE_VCR=true bundle exec rspec
+
+### Updating VCR Files
+
+Simply removing the existing VCR files should be enough to update all the responses. If no yaml file exists for a given
+test, VCR will record a new one. Be sure to clean up files afterwards using `bin/clean-vcr-files` which will remove
+unnecessary binary data from the responses:
+
+    rm -Rf spec/fixtures/vcr_cassettes
+    bundle exec rspec
+    bin/clean-vcr-files

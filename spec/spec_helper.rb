@@ -10,7 +10,11 @@ require 'pry'
 require 'scholarsphere/client'
 require 'rspec/its'
 
-Pathname.pwd.join('spec', 'support').children.each { |f| require f }
+Pathname.pwd.join('spec', 'support').children.each do |file|
+  next if file.basename.to_s == 'vcr.rb' && ENV['DISABLE_VCR'] == 'true'
+
+  require file
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
