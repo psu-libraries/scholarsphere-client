@@ -24,15 +24,21 @@ module Scholarsphere
 
       # @return [Faraday::Response] The response from Scholarsphere to the upload request.
       def upload
-        connection(file.presigned_url).put do |req|
-          req.body = file.source.read
-          req.headers['Content-MD5'] = file.content_md5
-        end
+        raise Client::Error.new(request.body) unless request.success?
+
+        request
       end
 
       private
 
         attr_reader :file, :content_md5
+
+        def request
+          @request ||= connection(file.presigned_url).put do |req|
+            req.body = file.source.read
+            req.headers['Content-MD5'] = file.content_md5
+          end
+        end
 
         def connection(url)
           Faraday::Connection.new(

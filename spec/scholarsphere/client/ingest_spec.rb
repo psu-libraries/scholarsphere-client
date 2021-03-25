@@ -5,35 +5,21 @@ RSpec.describe Scholarsphere::Client::Ingest do
     described_class.new(
       metadata: metadata,
       files: files,
-      depositor: depositor
+      depositor: 'agw13'
     )
   end
 
   let(:metadata) do
     {
       title: title,
-      creators_attributes: [creators]
-    }
-  end
-
-  let(:depositor) do
-    {
-      psu_id: 'agw13',
-      surname: 'Wead',
-      given_name: 'Adam',
-      email: 'agw13@psu.edu'
-    }
-  end
-
-  let(:creators) do
-    {
-      display_name: 'Dan Coughlin',
-      actor_attributes: {
-        psu_id: 'dmc186',
-        surname: 'Coughlin',
-        given_name: 'Dan',
-        email: 'dmc186@psu.edu'
-      }
+      visibility: 'open',
+      work_type: 'dataset',
+      description: 'Sample description',
+      published_date: '2020-10-11',
+      rights: 'https://creativecommons.org/licenses/by/4.0/',
+      creators: [
+        { psu_id: 'dmc186' }
+      ]
     }
   end
 

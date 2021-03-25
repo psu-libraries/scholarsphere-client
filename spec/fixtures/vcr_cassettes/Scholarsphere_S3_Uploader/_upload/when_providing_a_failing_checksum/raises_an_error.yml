@@ -1,0 +1,102 @@
+http_interactions:
+  - request:
+      method: post
+      uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/uploads
+      body:
+        encoding: UTF-8
+        string: '{"extension":".png","content_md5":"ERA="}'
+        base64_string: imagecontent
+      headers:
+        Content-Type:
+          - application/json
+        X-Api-Key:
+          - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+        User-Agent:
+          - Faraday v1.0.1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Thu, 25 Mar 2021 18:28:05 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Etag:
+          - W/"2a50be5b3b55791fa7dca9812bc3e5df"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 30aacc77da139775bdb0be6cd3e2f09d
+        X-Runtime:
+          - '0.037631'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: '{"url":"https://s3.amazonaws.com/edu.psu.libraries.scholarsphere.rmd-api/cache/03ca493a-85af-4ab4-b6af-6779aee3ab5a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAUNVJ736SRK7M7YVC%2F20210325%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210325T182805Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=content-md5%3Bhost\u0026X-Amz-Signature=d7b4c539beea8672d2e76d0497271d1d72085e0e2a9abbfaa3b13dc66b5d7c62","id":"03ca493a-85af-4ab4-b6af-6779aee3ab5a.png","prefix":"cache"}'
+    recorded_at: Thu, 25 Mar 2021 18:28:05 GMT
+  - request:
+      method: put
+      uri: https://s3.amazonaws.com/edu.psu.libraries.scholarsphere.rmd-api/cache/03ca493a-85af-4ab4-b6af-6779aee3ab5a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAUNVJ736SRK7M7YVC/20210325/us-east-1/s3/aws4_request&X-Amz-Date=20210325T182805Z&X-Amz-Expires=900&X-Amz-Signature=d7b4c539beea8672d2e76d0497271d1d72085e0e2a9abbfaa3b13dc66b5d7c62&X-Amz-SignedHeaders=content-md5%3Bhost
+      body:
+        encoding: UTF-8
+        base64_string: |-
+          imagecontent
+      headers:
+        User-Agent:
+          - Faraday v1.0.1
+        Content-Md5:
+          - ERA=
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        X-Amz-Request-Id:
+          - T409WVE2A8DAH51M
+        X-Amz-Id-2:
+          - z8HRqT7lh0jyInESWBHCOhiyYRhenw/2utitFj6bSwrgoKHlTNX6q6EW+Zn72SqAm6k9+gCQ8Cg=
+        Content-Type:
+          - application/xml
+        Transfer-Encoding:
+          - chunked
+        Date:
+          - Thu, 25 Mar 2021 18:28:05 GMT
+        Server:
+          - AmazonS3
+        Connection:
+          - close
+      body:
+        encoding: UTF-8
+        string: |-
+          <?xml version="1.0" encoding="UTF-8"?>
+          <Error><Code>InvalidDigest</Code><Message>The Content-MD5 you specified was invalid.</Message><Content-MD5>ERA=</Content-MD5><RequestId>T409WVE2A8DAH51M</RequestId><HostId>z8HRqT7lh0jyInESWBHCOhiyYRhenw/2utitFj6bSwrgoKHlTNX6q6EW+Zn72SqAm6k9+gCQ8Cg=</HostId></Error>
+    recorded_at: Thu, 25 Mar 2021 18:28:06 GMT
+recorded_with: VCR 6.0.0

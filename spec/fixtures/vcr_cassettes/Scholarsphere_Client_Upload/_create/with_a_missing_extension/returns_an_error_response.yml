@@ -1,54 +1,57 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://scholarsphere.test/api/v1/uploads
-    body:
-      encoding: UTF-8
-      string: '{"extension":""}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Api-Key:
-      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
-      User-Agent:
-      - Faraday v1.0.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Cache-Control:
-      - no-cache
-      Content-Type:
-      - application/json; charset=utf-8
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 4db54d9f-5878-4a97-95ec-cc60c90f40cd
-      X-Runtime:
-      - '0.007340'
-      X-Xss-Protection:
-      - 1; mode=block
-      Date:
-      - Wed, 03 Mar 2021 20:00:27 GMT
-      Content-Length:
-      - '88'
-    body:
-      encoding: UTF-8
-      string: '{"message":"Bad request","errors":["param is missing or the value is
-        empty: extension"]}'
-  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
+  - request:
+      method: post
+      uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/uploads
+      body:
+        encoding: UTF-8
+        string: '{"extension":"","content_md5":"checksum"}'
+        base64_string: imagecontent
+      headers:
+        Content-Type:
+          - application/json
+        X-Api-Key:
+          - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+        User-Agent:
+          - Faraday v1.0.1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        Date:
+          - Thu, 25 Mar 2021 18:28:03 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Cache-Control:
+          - no-cache
+        X-Request-Id:
+          - b8ba4325a36f19b42a5492729cdb5a1a
+        X-Runtime:
+          - '0.012391'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: '{"message":"Bad request","errors":["param is missing or the value is empty: extension"]}'
+    recorded_at: Thu, 25 Mar 2021 18:28:03 GMT
 recorded_with: VCR 6.0.0

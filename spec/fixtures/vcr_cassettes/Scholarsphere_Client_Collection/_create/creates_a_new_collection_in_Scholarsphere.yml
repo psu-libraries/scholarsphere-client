@@ -1,56 +1,59 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://scholarsphere.test/api/v1/collections
-    body:
-      encoding: UTF-8
-      string: '{"metadata":{"title":"Sample Title","creator_aliases_attributes":[{"alias":"John
-        Doe","actor_attributes":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"}}]},"depositor":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"},"permissions":{},"work_noids":[]}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Api-Key:
-      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
-      User-Agent:
-      - Faraday v1.0.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"83e333ad0ebebee1634fbe0893fd4e10"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 38f5e79a-b7e6-4ccd-a916-06f58f3d7411
-      X-Runtime:
-      - '0.197003'
-      X-Xss-Protection:
-      - 1; mode=block
-      Date:
-      - Wed, 03 Mar 2021 20:00:27 GMT
-      Content-Length:
-      - '105'
-    body:
-      encoding: UTF-8
-      string: '{"message":"Collection was successfully created","url":"/resources/109a2047-2af7-4706-92e4-e890b0161fea"}'
-  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
+  - request:
+      method: post
+      uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/collections
+      body:
+        encoding: UTF-8
+        string: '{"metadata":{"title":"Sample Title","creator_aliases_attributes":[{"alias":"John Doe","actor_attributes":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"}}],"description":"Sample description"},"depositor":{"email":"jxd21@psu.edu","given_name":"John","surname":"Doe","psu_id":"jxd21"},"permissions":{},"work_noids":[]}'
+        base64_string: imagecontent
+      headers:
+        Content-Type:
+          - application/json
+        X-Api-Key:
+          - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+        User-Agent:
+          - Faraday v1.0.1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Thu, 25 Mar 2021 18:27:58 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Etag:
+          - W/"4afc6ddc6c267d4289c6ecfb5dd342b2"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - e1269b6c129351b828724f19a0204089
+        X-Runtime:
+          - '0.177827'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: '{"message":"Collection was successfully created","url":"/resources/770a5367-9e5e-435d-ad55-e8ad568a7c31"}'
+    recorded_at: Thu, 25 Mar 2021 18:27:58 GMT
 recorded_with: VCR 6.0.0

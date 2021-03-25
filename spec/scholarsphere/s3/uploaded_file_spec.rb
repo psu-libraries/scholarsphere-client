@@ -42,6 +42,6 @@ RSpec.describe Scholarsphere::S3::UploadedFile do
   describe '#presigned_url', :vcr do
     subject { file.presigned_url }
 
-    it { is_expected.to include('scholarsphere-dev/cache') }
+    it { is_expected.to include('cache') }
   end
 end
