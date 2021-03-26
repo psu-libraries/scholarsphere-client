@@ -3,7 +3,11 @@
 RSpec.describe Scholarsphere::Client::Collection do
   let(:collection) do
     described_class.new(
-      metadata: { title: 'Sample Title', creator_aliases_attributes: [creator_alias] },
+      metadata: {
+        title: 'Sample Title',
+        creator_aliases_attributes: [creator_alias],
+        description: 'Sample description'
+      },
       depositor: depositor
     )
   end

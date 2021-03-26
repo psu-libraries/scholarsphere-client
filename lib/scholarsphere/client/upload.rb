@@ -10,8 +10,10 @@ module Scholarsphere
     #
     class Upload
       # @param extname [String] Extension of the file to be uploaded, without the period, such as 'pdf'
-      def initialize(extname:)
+      # @param content_md5 [String] This should be the same as UploadedFile.content_md5
+      def initialize(extname:, content_md5:)
         @extname = extname
+        @content_md5 = content_md5
       end
 
       # @return [String] Prefix where the file is stored in the S3 bucket.
@@ -31,18 +33,18 @@ module Scholarsphere
 
       private
 
-        attr_reader :extname
+        attr_reader :extname, :content_md5
 
         def request
           @request ||= Scholarsphere::Client.connection.post do |req|
             req.url 'uploads'
-            req.body = { extension: extname }.to_json
+            req.body = { extension: extname, content_md5: content_md5 }.to_json
           end
         end
 
         def data
           @data ||= begin
-                      raise Client::Error unless request.success?
+                      raise Client::Error.new(request.body) unless request.success?
 
                       JSON.parse(request.body)
                     end

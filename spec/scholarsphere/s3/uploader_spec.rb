@@ -7,7 +7,7 @@ RSpec.describe Scholarsphere::S3::Uploader do
   let(:uploader) { described_class.new(file: file) }
 
   describe '#upload', :vcr do
-    subject { uploader.upload }
+    subject(:upload) { uploader.upload }
 
     context 'with the default options' do
       let(:file) { Scholarsphere::S3::UploadedFile.new(source: path) }
@@ -18,8 +18,11 @@ RSpec.describe Scholarsphere::S3::Uploader do
     context 'when providing a failing checksum' do
       let(:file) { Scholarsphere::S3::UploadedFile.new(source: path, checksum: 'xxx') }
 
-      its(:status) { is_expected.to eq(400) }
-      its(:body) { is_expected.to include('BadDigest') }
+      it 'raises an error' do
+        expect {
+          upload
+        }.to raise_error(Scholarsphere::Client::Error)
+      end
     end
   end
 end

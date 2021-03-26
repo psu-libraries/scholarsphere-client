@@ -1,55 +1,59 @@
----
 http_interactions:
-- request:
-    method: post
-    uri: https://scholarsphere.test/api/v1/uploads
-    body:
-      encoding: UTF-8
-      string: '{"extension":".png"}'
-    headers:
-      Content-Type:
-      - application/json
-      X-Api-Key:
-      - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
-      User-Agent:
-      - Faraday v1.0.1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      Content-Type:
-      - application/json; charset=utf-8
-      Etag:
-      - W/"5dc2b9afbbac6bfc5bb07fdf33ee5c9a"
-      Referrer-Policy:
-      - strict-origin-when-cross-origin
-      X-Content-Type-Options:
-      - nosniff
-      X-Download-Options:
-      - noopen
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Permitted-Cross-Domain-Policies:
-      - none
-      X-Request-Id:
-      - 60cc7f2f-2199-42ed-bed5-8c3e7458768e
-      X-Runtime:
-      - '0.008285'
-      X-Xss-Protection:
-      - 1; mode=block
-      Date:
-      - Wed, 03 Mar 2021 20:00:27 GMT
-      Content-Length:
-      - '445'
-    body:
-      encoding: UTF-8
-      string: '{"url":"http://127.0.0.1:9000/scholarsphere-dev/cache/dccc11fd-4ad7-4b98-988d-0e8c7f1345fe.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=scholarsphere%2F20210303%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210303T200027Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=c64fbc3676e76a21cfef7c6462565feb4ad5095593a3eb2c9d417452ba8320f5","id":"dccc11fd-4ad7-4b98-988d-0e8c7f1345fe.png","prefix":"cache"}'
-  recorded_at: Wed, 03 Mar 2021 20:00:27 GMT
+  - request:
+      method: post
+      uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/uploads
+      body:
+        encoding: UTF-8
+        string: '{"extension":".png","content_md5":"MwNrG//gg8XTCCTx/yBLkA=="}'
+        base64_string: imagecontent
+      headers:
+        Content-Type:
+          - application/json
+        X-Api-Key:
+          - db9c21583ea98d16e42a73d9f78897c1ffc1dffcae781eb17f841cf421bd22b7a1a1228226437c5fdf6b6c9a8f537b17
+        User-Agent:
+          - Faraday v1.0.1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Thu, 25 Mar 2021 18:28:04 GMT
+        Content-Type:
+          - application/json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Etag:
+          - W/"3ed8a738b95803799b6e3fd3e14186e2"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 28f1de3b17fc515c5ee874cdf4bc4a09
+        X-Runtime:
+          - '0.011010'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: '{"url":"https://s3.amazonaws.com/edu.psu.libraries.scholarsphere.rmd-api/cache/9e6901e9-6dac-44d6-ab42-1d7f581315f8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAUNVJ736SRK7M7YVC%2F20210325%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20210325T182804Z\u0026X-Amz-Expires=900\u0026X-Amz-SignedHeaders=content-md5%3Bhost\u0026X-Amz-Signature=147f1f7cd971b443256a3755e6604a6b358a71a36b6d1635ac746e129058d5a1","id":"9e6901e9-6dac-44d6-ab42-1d7f581315f8.png","prefix":"cache"}'
+    recorded_at: Thu, 25 Mar 2021 18:28:04 GMT
 recorded_with: VCR 6.0.0

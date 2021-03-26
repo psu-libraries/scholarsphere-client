@@ -80,7 +80,7 @@ module Scholarsphere
         end
 
         def upload
-          @upload ||= Client::Upload.new(extname: source.extname)
+          @upload ||= Client::Upload.new(extname: source.extname, content_md5: content_md5)
         end
     end
   end
