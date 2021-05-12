@@ -44,10 +44,10 @@ module Scholarsphere
 
         def data
           @data ||= begin
-                      raise Client::Error.new(request.body) unless request.success?
+            raise Client::Error.new(request.body) unless request.success?
 
-                      JSON.parse(request.body)
-                    end
+            JSON.parse(request.body)
+          end
         end
     end
   end
