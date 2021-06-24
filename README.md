@@ -75,7 +75,7 @@ The json output should look like:
 
 ## Documentation
 
-You can read the [ruby docs](https://www.rubydoc.info/github/psu-stewardship/scholarsphere-client/main) for the latest features.
+You can read the [ruby docs](https://www.rubydoc.info/github/psu-libraries/scholarsphere-client/main) for the latest features.
 
 ## Testing
 

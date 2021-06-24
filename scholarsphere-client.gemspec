@@ -12,12 +12,12 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Client to connect to Scholarpshere'
   spec.description   = 'Client software to create new content for the Scholarsphere repository at Penn State.'
-  spec.homepage      = 'https://github.com/psu-stewardship/scholarsphere-client'
+  spec.homepage      = 'https://github.com/psu-libraries/scholarsphere-client'
 
   spec.metadata = {
     'homepage_uri' => spec.homepage,
     'source_code_uri' => spec.homepage,
-    'documentation_uri' => 'https://www.rubydoc.info/github/psu-stewardship/scholarsphere-client/main',
+    'documentation_uri' => 'https://www.rubydoc.info/github/psu-libraries/scholarsphere-client/main',
     'allowed_push_host' => 'https://rubygems.org'
   }
 

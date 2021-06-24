@@ -14,7 +14,7 @@ module Scholarsphere
     #     ingest = Scholarsphere::Client::Ingest.new(
     #       metadata: metadata,
     #       files: files,
-    #       depositor: depositor
+    #       depositor: 'abc123'
     #     )
     #     response = ingest.publish
     #
@@ -71,21 +71,11 @@ module Scholarsphere
     #
     # ## Depositor
     #
-    #     {
-    #       psu_id: '[Penn State Person]',
-    #       surname: '[family name]',
-    #       given_name: '[given name]',
-    #       email: 'abc123@psu.edu'
-    #     }
-    #
-    # Currently, the person identified as the depositor must have an active access account at Penn State. In most cases,
-    # the depositor will be the same person as the creator specified in the metadata; although, this is not always the
-    # case.  The depositor may be someone who is uploading on behalf of the creator and is not affiliated with the
-    # creation of the work. The depositor is *not* the client itself, either. The client is identified separately via
-    # the API token.
-    #
-    # Note that the fields are the same for both `creators_attributes` and `depositor`, so if the depositor is the same
-    # as the creator, all the values will need to be duplicated.
+    # The depositor is identified by their Penn State access id, which must be active at the time of ingest.  In most
+    # cases, the depositor will be the same person as the creator specified in the metadata; although, this is not
+    # always the case.  The depositor may be someone who is uploading on behalf of the creator and is not affiliated
+    # with the creation of the work. The depositor is *not* the client itself, either. The client is identified
+    # separately via the API token.
     #
     #
     class Ingest
@@ -93,7 +83,7 @@ module Scholarsphere
 
       # @param metadata [Hash] Metadata attributes
       # @param files [Array<File,IO,Pathnme>,Hash] An array of File or IO objects, or a hash with a :file param
-      # @param depositor [Hash] The name and access id of the depositor
+      # @param depositor [String] access id of the depositor
       # @param permissions [Hash] (optional) Additional permissions to apply to the resource
       def initialize(metadata:, files:, depositor:, permissions: {})
         @content = build_content_hash(files)
