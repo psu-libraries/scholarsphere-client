@@ -13,3 +13,5 @@
 # Ignore application configuration
 /config/scholarsphere-client.yml
 vcr.log
+
+.ruby-version
