@@ -1,5 +1,6 @@
 inherit_gem:
     niftany:
+      - niftany_rubocop.yml
       - niftany_rubocop_rspec.yml
       - niftany_rubocop_ruby.yml
 
