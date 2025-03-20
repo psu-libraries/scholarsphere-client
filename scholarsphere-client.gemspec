@@ -18,8 +18,11 @@ Gem::Specification.new do |spec|
     'homepage_uri' => spec.homepage,
     'source_code_uri' => spec.homepage,
     'documentation_uri' => 'https://www.rubydoc.info/github/psu-libraries/scholarsphere-client/main',
-    'allowed_push_host' => 'https://rubygems.org'
+    'allowed_push_host' => 'https://rubygems.org',
+    'rubygems_mfa_required' => 'true'
   }
+
+  spec.required_ruby_version = '>= 3.4'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -33,18 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'aws-sdk-s3', '~> 1.49'
   spec.add_dependency 'faraday', '> 0.12'
   spec.add_dependency 'marcel', '~> 1.0'
-
-  spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'niftany', '~> 0.6'
-  spec.add_development_dependency 'pry', '~> 0.12'
-  spec.add_development_dependency 'pry-byebug', '~> 3.9'
-  spec.add_development_dependency 'rake', '>= 12.3.3'
-  spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rspec-its', '~> 1.3'
-  spec.add_development_dependency 'vcr', '~> 6.0'
-  spec.add_development_dependency 'webmock', '~> 3.11'
-  spec.add_development_dependency 'yard', '< 1.0'
-
-  # Latest version of simplecov is not compatible with Code Climate
-  spec.add_development_dependency 'simplecov', '< 0.18'
+  spec.add_dependency 'mutex_m', '~> 0.3'
 end

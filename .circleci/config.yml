@@ -1,17 +1,17 @@
 version: 2.1
 orbs:
-  ruby: circleci/ruby@0.1.2 
+  ruby: circleci/ruby@2.5.0
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: cimg/ruby:3.4.1
     executor: ruby/default
     steps:
       - checkout
       - run:
           name: "Install Dependencides"
-          command: gem install bundler:2.1.4 && bundle install
+          command: gem install bundler:2.6.3 && bundle install
       - run:
           name: "Rubocop"
           command: bundle exec rubocop

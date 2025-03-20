@@ -2,7 +2,7 @@
 
 RSpec.describe Scholarsphere::Client do
   it 'has a version number' do
-    expect(Scholarsphere::Client::VERSION).not_to be nil
+    expect(Scholarsphere::Client::VERSION).not_to be_nil
   end
 
   describe '.connection' do

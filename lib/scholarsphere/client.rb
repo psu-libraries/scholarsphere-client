@@ -20,7 +20,7 @@ module Scholarsphere
       # @return [Faraday::Connection] A cached connection to the Scholarsphere API with the provided credentials.
       def connection
         @connection ||= Faraday::Connection.new(
-          url: ENV['SS4_ENDPOINT'],
+          url: ENV.fetch('SS4_ENDPOINT', nil),
           headers: {
             'Content-Type' => 'application/json',
             'X-API-KEY' => api_key
@@ -42,7 +42,7 @@ module Scholarsphere
 
       # @return [String] Alphanumeric API key that grants access to the API.
       def api_key
-        ENV['SS_CLIENT_KEY']
+        ENV.fetch('SS_CLIENT_KEY', nil)
       end
     end
   end
