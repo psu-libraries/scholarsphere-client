@@ -96,3 +96,4 @@ unnecessary binary data from the responses:
     rm -Rf spec/fixtures/vcr_cassettes
     bundle exec rspec
     bin/clean-vcr-files
+### Test
