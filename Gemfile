@@ -13,6 +13,7 @@ group :development do
   gem 'rake', '>= 12.3.3'
   gem 'rspec', '~> 3.0'
   gem 'rspec-its', '~> 1.3'
+  gem 'simplecov'
   gem 'vcr', '~> 6.0'
   gem 'webmock', '~> 3.11'
   gem 'yard', '< 1.0'
