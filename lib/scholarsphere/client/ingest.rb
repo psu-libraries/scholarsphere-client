@@ -115,7 +115,8 @@ module Scholarsphere
         upload_files
         connection.post do |req|
           req.url 'ingest'
-          req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions, publish: publish }.to_json
+          req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions,
+                       publish: publish }.to_json
         end
       end
 
