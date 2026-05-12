@@ -102,7 +102,8 @@ module Scholarsphere
       # @param files [Array<File,IO,Pathnme>,Hash] An array of File or IO objects, or a hash with a :file param
       # @param depositor [String] access id of the depositor
       # @param permissions [Hash] (optional) Additional permissions to apply to the resource
-      def initialize(metadata:, files:, depositor:, permissions: {})
+      # @param publish [Boolean] (optional) Whether the new Work should be published. Defaults to true
+      def initialize(metadata:, files:, depositor:, permissions: {}, publish: true)
         @content = build_content_hash(files)
         @metadata = metadata
         @depositor = depositor
