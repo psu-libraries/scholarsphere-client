@@ -52,7 +52,5 @@ RSpec.describe Scholarsphere::Client::Ingest do
         expect(JSON.parse(response.body)).to include('message' => 'Work was successfully created')
       end
     end
-
-    context 'with an '
   end
 end
