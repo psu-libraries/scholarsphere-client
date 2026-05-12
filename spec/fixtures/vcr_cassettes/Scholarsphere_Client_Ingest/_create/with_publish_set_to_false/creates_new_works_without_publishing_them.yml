@@ -1526,7 +1526,7 @@ http_interactions:
   recorded_at: Tue, 12 May 2026 19:02:27 GMT
 - request:
     method: post
-    uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/uploads
+    uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/ingest
     body:
       encoding: UTF-8
       string: '{"metadata":{"title":"Another Title","visibility":"open","work_type":"dataset","description":"Sample
