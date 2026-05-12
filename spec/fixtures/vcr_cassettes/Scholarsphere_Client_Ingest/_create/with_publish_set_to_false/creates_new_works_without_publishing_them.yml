@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://scholarsphere-main.uldev.k8s.libraries.psu.edu/api/v1/uploads
+    uri: https://scholarsphere-rmd-api.dsrd.libraries.psu.edu/api/v1/uploads
     body:
       encoding: UTF-8
       string: '{"extension":".png","content_md5":"MwNrG//gg8XTCCTx/yBLkA=="}'
