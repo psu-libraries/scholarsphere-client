@@ -16,7 +16,7 @@ module Scholarsphere
     #       files: files,
     #       depositor: 'abc123'
     #     )
-    #     response = ingest.publish
+    #     response = ingest.create
     #
     # If the response is successful, the application returns 200 OK with JSON:
     #
@@ -25,10 +25,27 @@ module Scholarsphere
     #       "message": "Work was successfully created",
     #       "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a"
     #     }
+    # ## Creating a new draft
+    #
+    # A Work can also be created without publishing it by passing a 'false' parameter.
+    #
+    #     ingest = Scholarsphere::Client::Ingest.new(
+    #       metadata: metadata,
+    #       files: files,
+    #       depositor: 'abc123',
+    #       publish: false
+    #     )
+    #     response = ingest.create
+    #
+    # If the response is successful, it will return a 201 Created with JSON:
+    #     puts response.body
+    #     {
+    #       "message": "Work was successfully created",
+    #       "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a",
+    #       "edit_url": "/dashboard/form/work_versions/8/files"
+    #     }
     #
     # Other possible outcomes include:
-    #
-    #   * work was created, but not successfully published because of missing attributes (201 Created)
     #   * work could not be created due to insufficient parameters (422 Unprocessable Entity)
     #   * there was an error with the application (500 Internal Server Error)
     #
@@ -79,7 +96,7 @@ module Scholarsphere
     #
     #
     class Ingest
-      attr_reader :content, :metadata, :depositor, :permissions
+      attr_reader :content, :metadata, :depositor, :permissions, :publish
 
       # @param metadata [Hash] Metadata attributes
       # @param files [Array<File,IO,Pathnme>,Hash] An array of File or IO objects, or a hash with a :file param
@@ -90,14 +107,15 @@ module Scholarsphere
         @metadata = metadata
         @depositor = depositor
         @permissions = permissions
+        @publish = publish
       end
 
       # @return [Faraday::Response] The response from the Scholarsphere application.
-      def publish
+      def create
         upload_files
         connection.post do |req|
           req.url 'ingest'
-          req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions }.to_json
+          req.body = { metadata: metadata, content: content, depositor: depositor, permissions: permissions, publish: publish }.to_json
         end
       end
 

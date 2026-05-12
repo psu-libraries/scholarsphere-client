@@ -32,6 +32,6 @@ ingest = Scholarsphere::Client::Ingest.new(
   depositor: 'axb123'
 )
 
-response = ingest.publish
+response = ingest.create
 
 puts response.body

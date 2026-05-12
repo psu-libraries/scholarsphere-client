@@ -61,7 +61,7 @@ ingest = Scholarsphere::Client::Ingest.new(
   depositor: 'axb123'
 )
 
-response = ingest.publish
+response = ingest.create
 
 puts response.body
 ```
@@ -73,6 +73,23 @@ The json output should look like:
       "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a"
     }
 
+If you pass in "publish:false", the json should also contain an edit_url that links to the file upload page.
+
+ingest = Scholarsphere::Client::Ingest.new(
+  metadata: metadata,
+  files: files,
+  depositor: 'axb123',
+  publish: false
+)
+
+response = ingest.create
+
+Returns json:
+    {
+      "message": "Work was successfully created",
+      "url": "/resources/0797e99c-7d4f-4e05-8bf6-86aea1029a6a",
+      "edit_url": "/dashboard/form/work_versions/8/files"
+    }
 ## Documentation
 
 You can read the [ruby docs](https://www.rubydoc.info/github/psu-libraries/scholarsphere-client/main) for the latest features.
